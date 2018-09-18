@@ -17,7 +17,11 @@ import edu.cpp.cs580.App;
 import edu.cpp.cs580.data.GpsProduct;
 import edu.cpp.cs580.data.User;
 import edu.cpp.cs580.data.provider.GpsProductManager;
+
 import edu.cpp.cs580.data.provider.UserManager;
+//import edu.csupomona.cs480.data.repository.TruckRepository;
+import edu.cpp.cs580.data.provider.TruckInfoManager;
+import edu.cpp.cs580.data.TruckInfo;
 
 
 /**
@@ -39,11 +43,17 @@ public class WebController {
 	 * In our project, all the beans are defined in
 	 * the {@link App} class.
 	 */
+	
+//	@Autowired
+//	private TruckInfoManager truckManager;
 	@Autowired
 	private UserManager userManager;
 	@Autowired
 	private GpsProductManager gpsManager;
-
+	
+	
+//	@Autowired
+//	private TruckRepository truckRepository;
 	/**
 	 * This is a simple example of how the HTTP API works.
 	 * It returns a String "OK" in the HTTP response.
@@ -177,5 +187,63 @@ public class WebController {
     	ModelAndView modelAndView = new ModelAndView("loginpage.html");
 		return modelAndView;
     }
-
+	/*  cs580/chi-wei wang (john) -a3
+	 * 
+	 */
+    @RequestMapping(value = "/cs580/chiwang/a3", method = RequestMethod.GET)
+	int[] getFibonacciSequence() {
+		// Will try to compute Fibonacci in O(n) time using memoization
+		int maxSize = 10;
+		int[] fib = new int[maxSize + 1];
+		// Initialize first two numbers
+		fib[0] = 0;
+		fib[1] = 1;
+		
+		// Calculate next fibonacci numbers based on previously stored numbers
+		for (int i = 2; i <= maxSize; i++) {
+			fib[i] = fib[i-1] + fib[i-2];
+		}
+		
+		return fib;
+	}
+	//pass
+    
+//	@RequestMapping(value = "/cs580/foodtruck/{truckId}", method = RequestMethod.GET)
+//	TruckInfo getTruckInfo(@PathVariable("truckId") Integer truckId) {
+//		TruckInfo truck = truckManager.getTruckInfo(truckId);
+//		return truck;
+//	}
+//	//pass
+//	@RequestMapping(value = "/cs580/foodtruck/{truckId}", method = RequestMethod.POST)
+//	TruckInfo updateTruckInfo(
+//			@PathVariable("truckId") String id,
+//			@RequestParam("name") String name,
+//			@RequestParam(value = "type", required = false) String type) {
+//		TruckInfo truck = new TruckInfo();
+//		truck.setId(id);
+//		truck.setName(name);
+//		truck.setType(type);
+//		truckManager.updateTruckInfo(truck);
+//		return truck;
+//	}
+//	//pass
+//	@RequestMapping(value = "/cs580/foodtruck/{truckId}", method = RequestMethod.DELETE)
+//	void deleteTruckInfo(
+//			@PathVariable("truckId") Integer truckId) {
+//		truckManager.deleteTruckInfo(truckId);	
+//	}
+//	//pass
+//	@RequestMapping(value = "/cs580/foodtruck/list", method = RequestMethod.GET)
+//	List<TruckInfo> listAllTrucks() {
+//		return truckManager.listAllTrucks();
+//	}
+//	
+//	@RequestMapping(value = "/cs580/foodtruck/home", method = RequestMethod.GET)
+//	ModelAndView getFoodtruckPage() {
+//		ModelAndView modelAndView = new ModelAndView("foodtruck");
+//		modelAndView.addObject("trucks", listAllTrucks());
+//		return modelAndView;
+//	}
+    
+    
 }
