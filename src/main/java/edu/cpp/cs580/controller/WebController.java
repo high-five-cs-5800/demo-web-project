@@ -168,5 +168,14 @@ public class WebController {
         
 		return PingResult;
 	}
+	/**************Bonnie
+	 *  API to call Login page. Page layout will be updated in the future.
+	 *  *********************/
+	
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    ModelAndView welcomePage(){
+    	ModelAndView modelAndView = new ModelAndView("loginpage.html");
+		return modelAndView;
+    }
 
 }
