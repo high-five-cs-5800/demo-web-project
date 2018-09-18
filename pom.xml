@@ -52,7 +52,6 @@
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>1.2.0.RELEASE</version>
             <scope>test</scope>
         </dependency>
 
@@ -66,6 +65,21 @@
 			<groupId>com.firebase</groupId>
 			<artifactId>firebase-client-jvm</artifactId>
 			<version>2.5.0</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-databind</artifactId>
+   		</dependency>
+		
+		<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-core</artifactId>
+    	</dependency>
+    	
+    	<dependency>
+    		<groupId>com.fasterxml.jackson.core</groupId>
+    		<artifactId>jackson-annotations</artifactId>
 		</dependency>
 				
 	</dependencies>
