@@ -1,5 +1,8 @@
 package edu.cpp.cs580.controller;
 
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -143,6 +146,27 @@ public class WebController {
 		ModelAndView modelAndView = new ModelAndView("home");
 		modelAndView.addObject("users", listAllUsers());
 		return modelAndView;
+	}
+	
+	/***************Simple API for Internet Connection - Roger
+	 * @throws Exception *********************/
+	@RequestMapping(value = "/cs580/pingInternet", method = RequestMethod.GET)
+	String InternetCheck() throws Exception{
+		String PingResult = "";
+		InetAddress DNS1 = InetAddress.getByName("8.8.8.8");
+
+        boolean ping = DNS1.isReachable(1000);
+
+        if (!ping)
+        {
+            PingResult = "ERR_CONNECTION_TIMED_OUT";
+        }
+        else
+        {
+            PingResult = "CONNECTION_FOUND";
+        }
+        
+		return PingResult;
 	}
 
 }
